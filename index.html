@@ -13,21 +13,34 @@
     <script type="text/babel">
       const container = document.getElementById("root");
       const root = ReactDOM.createRoot(container);
-      root.render(
-        <>
-          <h1>Belajar React with San Tech🚀</h1>
-          <img src="img/SanTech.jpg" width="15%" alt="My Image" />
-          <p>How easy to Learn React right?</p>
-          <button
-            type="button"
-            onClick={(e) => {
-              alert("ok!");
-            }}
-          >
-            sure
-          </button>
-        </>
-      );
+
+      function Header() {
+        return (
+          <>
+            <h1>Belajar React with San Tech🚀</h1>
+            <img src="img/SanTech.jpg" width="250px" alt="My Image" />
+            <p>How easy to Learn React right?</p>
+            <button
+              type="button"
+              onClick={(e) => {
+                alert("ok!");
+              }}
+            >
+              sure
+            </button>
+          </>
+        );
+      }
+
+      function HomePage() {
+        return (
+          <>
+            <Header />
+          </>
+        );
+      }
+
+      root.render(<HomePage />);
     </script>
   </body>
 </html>
