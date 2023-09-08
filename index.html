@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn React</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const container = document.getElementById("root");
+      const root = ReactDOM.createRoot(container);
+      root.render(
+        <>
+          <h1>Belajar React with San Tech🚀</h1>
+          <img src="img/SanTech.jpg" width="15%" alt="My Image" />
+          <p>How easy to Learn React right?</p>
+          <button
+            type="button"
+            onClick={(e) => {
+              alert("ok!");
+            }}
+          >
+            sure
+          </button>
+        </>
+      );
+    </script>
+  </body>
+</html>
