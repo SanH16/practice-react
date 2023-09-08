@@ -14,10 +14,10 @@
       const container = document.getElementById("root");
       const root = ReactDOM.createRoot(container);
 
-      function Header(props) {
+      function Header({ author }) {
         return (
           <>
-            <h1>Belajar React with {props.author}🚀</h1>
+            <h1>Belajar React with {author ? author : "San Tech"}🚀</h1>
             <img src="img/SanTech.jpg" width="250px" alt="My Image" />
             <p>How easy to Learn React right?</p>
             <button
@@ -33,9 +33,15 @@
       }
 
       function HomePage() {
+        const students = ["San", "Alex", "Michael"];
         return (
           <>
-            <Header author="San Tech" />
+            <Header />
+            <ul>
+              {students.map((student) => (
+                <li key={student}>{student}</li>
+              ))}
+            </ul>
             <Header author="Adhitya Hasan" />
           </>
         );
