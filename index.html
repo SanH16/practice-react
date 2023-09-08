@@ -14,10 +14,10 @@
       const container = document.getElementById("root");
       const root = ReactDOM.createRoot(container);
 
-      function Header() {
+      function Header(props) {
         return (
           <>
-            <h1>Belajar React with San Tech🚀</h1>
+            <h1>Belajar React with {props.author}🚀</h1>
             <img src="img/SanTech.jpg" width="250px" alt="My Image" />
             <p>How easy to Learn React right?</p>
             <button
@@ -35,7 +35,8 @@
       function HomePage() {
         return (
           <>
-            <Header />
+            <Header author="San Tech" />
+            <Header author="Adhitya Hasan" />
           </>
         );
       }
