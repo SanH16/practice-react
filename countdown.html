@@ -1,0 +1,38 @@
+<html>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      startTimer = () => {
+        setState({ isRunning: true });
+        timerID = setInterval(() => {
+          if (state.seconds > 0) {
+            setState((prevState) => ({ seconds: prevState.seconds - 1 }));
+          } else {
+            stopTimer();
+          }
+        }, 1000);
+      };
+
+      stopTimer = () => {
+        clearInterval(timerID);
+        setState({ isRunning: false });
+      };
+
+      resetTimer = () => {
+        clearInterval(timerID);
+        setState({ seconds: props.initialSeconds, isRunning: false });
+      };
+
+      const timeout = setTimeout(() => {
+        console.log("test");
+      }, 2000);
+
+      //   root.render(<Timer  />);
+    </script>
+  </body>
+</html>
