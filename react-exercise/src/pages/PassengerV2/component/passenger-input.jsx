@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../homes.css";
 
 export default function PassengerInput(props) {
   const [state, setState] = useState({
