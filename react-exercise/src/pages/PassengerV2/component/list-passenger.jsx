@@ -1,7 +1,7 @@
 import ListItem from "./list-item";
 
 const ListPassenger = (props) => {
-  //   const [data, hapusPengunjung] = props;
+  // const { data, hapusPengunjung } = props;
   return (
     <div>
       <table cellPadding="5px" cellSpacing="0" style={{ margin: "auto" }}>
@@ -10,11 +10,9 @@ const ListPassenger = (props) => {
           <td>Umur</td>
           <td>Jenis Kelamin</td>
         </thead>
-        <tbody>
-          {props.data.map((passenger) => (
-            <ListItem key={passenger.id} item={passenger} hapusPengunjung={props.hapusPengunjung} />
-          ))}
-        </tbody>
+        {props.data.map((item) => (
+          <ListItem key={item.id} data={item} hapusPengunjung={props.hapusPengunjung} />
+        ))}
       </table>
     </div>
   );

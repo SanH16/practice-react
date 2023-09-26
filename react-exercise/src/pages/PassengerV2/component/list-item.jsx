@@ -1,19 +1,12 @@
 const ListItem = (props) => {
-  const { id, nama, umur, jenisKelamin } = props;
+  const { id, nama, umur, jenisKelamin } = props.data;
   return (
     <tr>
       <td>{nama}</td>
       <td>{umur}</td>
       <td>{jenisKelamin}</td>
-      <td>
-        {/* <button
-          onClick={() => {
-            id;
-            // hapusPengunjung(id);
-          }}
-        >
-          Hapus
-        </button> */}
+      <td onClick={() => props.hapusPengunjung(id)}>
+        <button>Hapus</button>
       </td>
     </tr>
   );

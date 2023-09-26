@@ -1,34 +1,35 @@
 import React, { useState } from "react";
 
 export default function PassengerInput(props) {
-  const [data, setData] = useState({
+  const [state, setState] = useState({
     nama: "",
     umur: "",
     jenisKelamin: "Pria",
+    editing: true,
   });
-  const [editing, setEditing] = useState(true);
 
   const onChange = (e) => {
-    setData({
-      ...data,
+    setState({
+      ...state,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (data.nama.trim() && data.umur && data.jenisKelamin) {
-      const umur = data.umur;
+    if (state.nama.trim() && state.umur && state.jenisKelamin) {
+      const umur = state.umur;
       if (umur >= 75 || umur <= 12) {
         alert("Umur tidak sesuai");
       } else {
         const newData = {
-          nama: data.nama,
-          umur: data.umur,
-          jenisKelamin: data.jenisKelamin,
+          nama: state.nama,
+          umur: state.umur,
+          jenisKelamin: state.jenisKelamin,
         };
         props.tambahPengunjung(newData);
-        setData({
+        setState({
+          ...state,
           nama: "",
           umur: "",
           jenisKelamin: "Pria",
@@ -40,17 +41,23 @@ export default function PassengerInput(props) {
   };
 
   const handleOpenInput = () => {
-    setEditing(false);
+    setState({
+      ...state,
+      editing: false,
+    });
   };
 
   const handleClearInput = () => {
-    setEditing(true);
+    setState({
+      ...state,
+      editing: true,
+    });
   };
 
   const viewMode = {};
   const editMode = {};
 
-  if (editing) {
+  if (state.editing) {
     viewMode.display = "none";
   } else {
     editMode.display = "none";
@@ -60,10 +67,10 @@ export default function PassengerInput(props) {
     <div>
       <div onSubmit={handleSubmit} style={viewMode}>
         <p>Masukkan nama anda</p>
-        <input type="text" placeholder="Nama anda" value={data.nama} name="nama" onChange={onChange} />
+        <input type="text" placeholder="Nama anda" value={state.nama} name="nama" onChange={onChange} />
 
         <p>Masukkan umur anda</p>
-        <input type="text" placeholder="Umur anda" value={data.umur} name="umur" onChange={onChange} />
+        <input type="text" placeholder="Umur anda" value={state.umur} name="umur" onChange={onChange} />
 
         <p>Masukkan jenis kelamin</p>
         <select onChange={onChange} name="jenisKelamin">

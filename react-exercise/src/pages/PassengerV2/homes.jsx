@@ -33,8 +33,8 @@ export default function Homes() {
   const [data, setData] = useState(initialValue);
 
   const hapusPengunjung = (id) => {
-    setData((oldData) =>
-      oldData.filter((item) => {
+    setData(
+      ...data.filter((item) => {
         return item.id !== id;
       })
     );
@@ -43,7 +43,7 @@ export default function Homes() {
   const tambahPengunjung = (newUser) => {
     const newData = { id: uuidv4(), ...newUser };
 
-    setData((oldData) => [oldData, newData]);
+    setData([...data, newData]);
   };
 
   return (
