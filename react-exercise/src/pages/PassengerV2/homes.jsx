@@ -47,7 +47,7 @@ export default function Homes() {
   };
 
   return (
-    <div>
+    <div style={{ margin: "auto", textAlign: "center" }}>
       <ListPassenger data={data} hapusPengunjung={hapusPengunjung} />
       <PassengerInput tambahPengunjung={tambahPengunjung} />
     </div>
