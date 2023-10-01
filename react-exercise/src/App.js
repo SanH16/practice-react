@@ -5,6 +5,7 @@ import Homes from "./pages/PassengerV2/homes";
 import Count from "./pages/Hooks/count";
 import Simple from "./pages/Simple/Simple";
 import ProfileUser from "./pages/PassengerV2/component/profile-user";
+import FormPage from "./pages/Form/form-page";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { mockUsers } from "./mockData";
 import "./App.css";
@@ -19,6 +20,7 @@ function App() {
         <Route path="/clock" element={<Clock />} />
         <Route path="/count" element={<Count />} />
         <Route path="/simple" element={<Simple />} />
+        <Route path="/form-page" element={<FormPage />} />
       </Routes>
     </Router>
     // <>

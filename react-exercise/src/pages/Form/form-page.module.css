@@ -1,0 +1,21 @@
+.input {
+  display: flex;
+  margin: auto;
+  width: 250px;
+  height: 20px;
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+form > label {
+  display: block;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+form {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
