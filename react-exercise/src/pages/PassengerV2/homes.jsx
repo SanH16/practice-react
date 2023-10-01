@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+
 import ListPassenger from "./component/list-passenger";
 import PassengerInput from "./component/passenger-input";
 
@@ -33,11 +34,11 @@ export default function Homes() {
   const [data, setData] = useState(initialValue);
 
   const hapusPengunjung = (id) => {
-    setData(
+    setData([
       ...data.filter((item) => {
         return item.id !== id;
-      })
-    );
+      }),
+    ]);
   };
 
   const tambahPengunjung = (newUser) => {
