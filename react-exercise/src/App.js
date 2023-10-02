@@ -6,40 +6,46 @@ import Count from "./pages/Hooks/count";
 import Simple from "./pages/Simple/Simple";
 import ProfileUser from "./pages/PassengerV2/component/profile-user";
 import FormPage from "./pages/Form/form-page";
+
+// redux
+import HomePage from "./pages/PassengerRedux/home-page";
+import ProfileRedux from "./pages/PassengerRedux/components/profile-redux";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./pages/PassengerRedux/store/store";
+
+//router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { mockUsers } from "./mockData";
 import "./App.css";
 
+const AppProvider = () => {
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Routes>
+          <Route path="/" element={<Homes />} />
+          <Route path="/profile/:nama" element={<ProfileUser />} />
+          <Route path="/page" element={<ProfilePage users={mockUsers} />} />
+          <Route path="/clock" element={<Clock />} />
+          <Route path="/count" element={<Count />} />
+          <Route path="/simple" element={<Simple />} />
+          <Route path="/form-page" element={<FormPage />} />
+
+          {/* redux */}
+          <Route path="/redux" element={<HomePage />} />
+          <Route path="/redux/profile/:nama" element={<ProfileRedux />} />
+        </Routes>
+      </PersistGate>
+    </Provider>
+  );
+};
+
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Homes />} />
-        <Route path="/profile/:nama" element={<ProfileUser />} />
-        <Route path="/page" element={<ProfilePage users={mockUsers} />} />
-        <Route path="/clock" element={<Clock />} />
-        <Route path="/count" element={<Count />} />
-        <Route path="/simple" element={<Simple />} />
-        <Route path="/form-page" element={<FormPage />} />
-      </Routes>
+      <AppProvider />
     </Router>
-    // <>
-    //   <ProfilePage users={mockUsers} />
-    //   <Clock />
-    //   <div className="App" style={{ marginBottom: "10em" }}>
-    //     <Home />
-    //   </div>
-    //   <div>
-    //     <Count />
-    //   </div>
-
-    //   <div className="App" style={{ marginBottom: "10em" }}>
-    //     <Homes />
-    //   </div>
-    //   <div>
-    //     <Simple />
-    //   </div>
-    // </>
   );
 }
 
