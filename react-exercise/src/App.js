@@ -20,6 +20,7 @@ import { mockUsers } from "./mockData";
 import "./App.css";
 import FormPageTesting from "./pages/Testing/FormPageTesting";
 import Search from "./pages/Testing/Search";
+import Charts from "./pages/Charts";
 
 const AppProvider = () => {
   return (
@@ -41,6 +42,9 @@ const AppProvider = () => {
           {/* testing */}
           <Route path="/testing" element={<FormPageTesting />} />
           <Route path="/testing/search" element={<Search />} />
+
+          {/* Charts */}
+          <Route path="/charts" element={<Charts />} />
         </Routes>
       </PersistGate>
     </Provider>
