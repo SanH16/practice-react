@@ -21,6 +21,7 @@ import "./App.css";
 import FormPageTesting from "./pages/Testing/FormPageTesting";
 import Search from "./pages/Testing/Search";
 import Charts from "./pages/Charts";
+import Rechart from "./pages/Recharts/Rechart";
 
 const AppProvider = () => {
   return (
@@ -45,6 +46,7 @@ const AppProvider = () => {
 
           {/* Charts */}
           <Route path="/charts" element={<Charts />} />
+          <Route path="/recharts" element={<Rechart />} />
         </Routes>
       </PersistGate>
     </Provider>
