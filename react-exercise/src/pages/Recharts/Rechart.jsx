@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  LabelList,
-  ResponsiveContainer as Wrapper,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, LabelList, ResponsiveContainer as Wrapper } from "recharts";
 
 const data = [
   {
@@ -84,9 +74,16 @@ export default function Rechart() {
               paddingBottom: "50px",
             }}
           />
-          <CartesianGrid strokeDasharray="1 3" />
-          <XAxis orientation="bottom" dataKey="day" tickLine={false} axisLine={false} />
-          <YAxis orientation="left" type="string" dataKey="amount" tickLine={false} axisLine={false} />
+          {/* <CartesianGrid strokeDasharray="1 3" /> */}
+          <XAxis orientation="bottom" dataKey="day" tickLine={false} axisLine={false} style={{ fontWeight: 400 }} />
+          <YAxis
+            orientation="left"
+            type="string"
+            dataKey="amount"
+            tickLine={false}
+            axisLine={false}
+            style={{ fontWeight: 400 }}
+          />
           <Tooltip />
           <Bar barSize={10} dataKey="previous" name="Pekan Lalu" fill="rgba(185, 185, 185, 0.8)" />
           <Bar barSize={10} dataKey="after" name="Pekan Kini" fill="rgba(14, 141, 116, 1)">
