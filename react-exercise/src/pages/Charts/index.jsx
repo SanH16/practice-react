@@ -2,6 +2,8 @@ import React from "react";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { Card } from "antd";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -50,10 +52,13 @@ const datas = {
   ],
 };
 export default function Charts() {
+  const notify = () => toast.info("Wow so easy!");
+
   return (
     <>
       <Card title="Pendapatan" bordered={false} style={{ width: 768 }}>
-        <Bar options={configs} data={datas} />;
+        <Bar options={configs} data={datas} onClick={notify} />
+        <ToastContainer style={{ width: "100vw" }} />
       </Card>
     </>
   );
