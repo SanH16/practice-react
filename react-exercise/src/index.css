@@ -13,3 +13,9 @@ code {
 .text-black {
   color: black;
 }
+
+.bg-green {
+  background: "#93E5D5 !important";
+  color: "#FBFBFB !important";
+  font-weight: "bold";
+}

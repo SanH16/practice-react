@@ -1,6 +1,9 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, LabelList, ResponsiveContainer as Wrapper } from "recharts";
 
+import { showNotify } from "../Charts";
+import { ToastContainer } from "react-toastify";
+
 const data = [
   {
     day: "Senin",
@@ -91,6 +94,8 @@ export default function Rechart() {
           </Bar>
         </BarChart>
       </Wrapper>
+      <button onClick={() => showNotify("Data pasien", "top-center")}>test notify</button>
+      <ToastContainer style={{ width: "90vw" }} />
     </>
   );
 }

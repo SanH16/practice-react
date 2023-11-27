@@ -51,14 +51,35 @@ const datas = {
     },
   ],
 };
-export default function Charts() {
-  const notify = () => toast.info("Wow so easy!");
 
+export const showNotify = (pesan, position) =>
+  toast(pesan, {
+    position,
+    autoClose: 3000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    progress: undefined,
+    className: "bg-green",
+    // style: { width: "90vw" },
+    // progressClassName: {
+    //   background: "#0000",
+    // },
+    // theme: "dark",
+
+    // style: {
+    //   background: "#93E5D5 !important",
+    //   color: "#FBFBFB !important",
+    //   fontWeight: "bold",
+    // },
+  });
+
+export default function Charts() {
   return (
     <>
       <Card title="Pendapatan" bordered={false} style={{ width: 768 }}>
-        <Bar options={configs} data={datas} onClick={notify} />
-        <ToastContainer style={{ width: "100vw" }} />
+        <Bar options={configs} data={datas} onClick={() => showNotify("Data berhasil diverifikasi", "bottom-left")} />
+        <ToastContainer style={{ width: "90vw" }} />
       </Card>
     </>
   );
