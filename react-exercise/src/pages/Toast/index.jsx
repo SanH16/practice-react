@@ -10,7 +10,7 @@ export default function Toast({ pesan, position }) {
     closeOnClick: true,
     pauseOnHover: true,
     progress: undefined,
-    // className: "bg-green",
+    className: "bg-green text-white",
   });
   //   const showNotifikasi = () =>
   //     toast(pesan, {
